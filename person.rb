@@ -12,7 +12,7 @@ class Person < Nameable
     @parent_permission = parent_permission
     @rental = []
     @nameable = Nameable.new
-    super
+    super()
   end
 
   def of_age?
@@ -25,10 +25,6 @@ class Person < Nameable
 
   def correct_name
     @name
-  end
-
-  def add_rental(rental)
-    @rental.push(rental)
   end
 
   private :of_age?
