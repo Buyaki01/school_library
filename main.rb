@@ -1,5 +1,6 @@
 require './student'
 require './teacher'
+require './book'
 
 @books = []
 @persons = []
@@ -24,10 +25,16 @@ def display_rental(person_id)
 end
 
 def create_book
+  print 'Title: '
   title = gets.chomp
+
+  print 'Author: '
   author = gets.chomp
+
   book = Book.new(title, author)
   @books.push(book)
+
+  puts 'Book created successfully'
 end
 
 def create_student
