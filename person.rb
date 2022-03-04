@@ -27,5 +27,9 @@ class Person < Nameable
     @name
   end
 
+  def add_rental(rental)
+    @rental.push(rental)
+  end
+
   private :of_age?
 end
