@@ -1,6 +1,7 @@
+require './nameable'
 require './rental'
 
-class Person
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id, :rental
 
@@ -10,6 +11,8 @@ class Person
     @age = age
     @parent_permission = parent_permission
     @rental = []
+    @nameable = Nameable.new
+    super
   end
 
   def of_age?
@@ -19,5 +22,10 @@ class Person
   def can_use_services?
     of_age? && @parent_permission == true
   end
+
+  def correct_name
+    @name
+  end
+
   private :of_age?
 end
