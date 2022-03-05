@@ -8,12 +8,17 @@
 
 - Ruby
 
+## Getting Started
+- Clone the repo: git clone https://github.com/Buyaki01/school_library.git
+- Go to right folder: cd school_library
+- Run the application: ruby main.rb
+
 ## Author
 
 👤 **Ritta Sweta**
-
-- Github: [@githubhandle](https://github.com/Buyaki01)
-- Linkedin: [LinkedIn](https://www.linkedin.com/in/ritta-sweta/)
+- Github: [@Buyaki01](https://github.com/Buyaki01)
+- Linkedin: [Ritta Sweta](https://www.linkedin.com/in/ritta-sweta/)
+- Twitter: [@BuyakiRitta](https://twitter.com/BuyakiRitta)
 
 ## 🤝 Contributing
 
