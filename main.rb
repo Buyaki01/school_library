@@ -2,15 +2,11 @@ require './handlePerson'
 require './handleRental'
 require './handleBook'
 
-class Menu
-  def initialize
-    @books = []
-    @persons = []
-    @rentals = []
-    @book = HandleBooks.new(@books)
-    @person = HandlePersons.new(@persons)
-    @rental = HandleRentals.new({ rentals: @rentals, persons: @persons, books: @books })
-  end
+  @handle_book = HandleBooks.new
+  @persons = []
+  @rentals = []
+  @person = HandlePersons.new(@persons)
+  @rental = HandleRentals.new({ rentals: @rentals, persons: @persons, books: @books })
 
   def menu
     puts 'Please choose an option by entering a number: '
@@ -26,31 +22,30 @@ class Menu
   def choose_options(user_input)
     case user_input
     when 1
-      @book.display_books
+      @handle_book.display_books
     when 2
       @person.display_people
     when 3
       @person.create_person
     when 4
-      @book.create_book
+      @handle_book.create_book
     when 5
       @rental.create_rental
     when 6
       @rental.display_rental
     end
   end
-end
 
-def main()
-  puts 'Welcome to school library App'
-  is_working = true
-  while is_working == true
-    @menu = Menu.new
-    @menu.menu
-    user_input = gets.chomp.to_i
-    is_working = false if user_input == 7
-    @menu.choose_options(user_input)
+  def main()
+    puts 'Welcome to school library App'
+    is_working = true
+    while is_working == true
+      # @menu = Menu.new
+      menu
+      user_input = gets.chomp.to_i
+      is_working = false if user_input == 7
+      choose_options(user_input)
+    end
   end
-end
 
-main
+  main

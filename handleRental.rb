@@ -1,6 +1,6 @@
 require './rental'
 require './handleBook'
-require './handlePerson'
+require_relative './handlePerson'
 
 class HandleRentals
   def initialize(params) 
