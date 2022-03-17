@@ -4,7 +4,9 @@ require './handle_book'
 
 @handle_book = HandleBooks.new
 @handle_person = HandlePersons.new
+@rentals = []
 @rental = HandleRentals.new({ rentals: @rentals, persons: @persons, books: @books })
+
 
 def menu
   puts 'Please choose an option by entering a number: '
@@ -34,12 +36,10 @@ def choose_options(user_input)
   end
 end
 
-
 def main()
 puts 'Welcome to school library App'
 is_working = true
 while is_working == true
-  # @menu = Menu.new
   menu
   user_input = gets.chomp.to_i
   is_working = false if user_input == 7
