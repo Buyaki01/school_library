@@ -1,13 +1,13 @@
 require './rental'
-require './handleBook'
-require_relative './handlePerson'
+require './handle_book'
+require './handle_person'
 
 class HandleRentals
-  def initialize(params) 
-    @rentals = params[:rentals] 
-    @books = params[:books] 
-    @persons = params[:persons] 
-  end 
+  def initialize(params)
+    @rentals = params[:rentals]
+    @books = params[:books]
+    @persons = params[:persons]
+  end
 
   def create_rental
     puts 'Select a book from the following list by number'
@@ -29,7 +29,7 @@ class HandleRentals
 
     puts 'Rental created successfully'
   end
-    
+
   def display_rental
     puts 'ID of person: '
     person_id = gets.chomp.to_i
@@ -39,7 +39,7 @@ class HandleRentals
       puts "Date: #{rental.date}, Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == person_id
     end
   end
-  
+
   def display_book_rental
     @books.each_with_index do |book, index|
       puts "#{index}) Title: #{book.title}, Author: #{book.author}"

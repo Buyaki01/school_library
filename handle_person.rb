@@ -3,24 +3,26 @@ require './student'
 require './teacher'
 
 class HandlePersons
-  def initialize(arg)
-    @persons = arg
+  def initialize
+    @persons = []
   end
 
   def create_student
     print 'Age:'
     age = gets.chomp
+
     print 'Name:'
     name = gets.chomp
+
     print 'Has parent permission?[Y/N]'
     parent_permission = gets.chomp
     case parent_permission
     when 'Y'
-        parent_permission = true
+      parent_permission = true
     when 'N'
-        parent_permission = false
+      parent_permission = false
     end
-    student = Student.new(name, age, parent_permission)
+    student = Student.new(age, name, parent_permission)
     @persons.push(student)
   end
 
@@ -34,7 +36,7 @@ class HandlePersons
     print 'specialization:'
     specialization = gets.chomp
 
-    teacher = Teacher.new(name, age, specialization)
+    teacher = Teacher.new(age, name, specialization)
     @persons.push(teacher)
   end
 
@@ -51,8 +53,11 @@ class HandlePersons
   end
 
   def display_people
-    @persons.map do |person|
-      puts "#{person.id} #{person.name} #{person.class.name} #{person.age}"
+    @persons.each do |person|
+      puts "ID: #{person.id}" 
+      puts "Name: #{person.name}"
+      puts "Age: #{person.age}"
+      puts "#{person.class.name}"
     end
   end
 end
