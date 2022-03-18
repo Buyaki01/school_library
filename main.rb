@@ -1,7 +1,6 @@
 require './handle_person'
 require './handle_rental'
 require './handle_book'
-require 'pry'
 
 @handle_book = HandleBooks.new
 @handle_person = HandlePersons.new
@@ -28,7 +27,6 @@ def choose_options(user_input)
     @handle_person.create_person
   when 4
     @handle_book.create_book
-    binding.pry
   when 5
     @handle_rental.create_rental
   when 6
@@ -37,14 +35,14 @@ def choose_options(user_input)
 end
 
 def main()
-puts 'Welcome to school library App'
-is_working = true
-while is_working == true
-  menu
-  user_input = gets.chomp.to_i
-  is_working = false if user_input == 7
-  choose_options(user_input)
-end
+  puts 'Welcome to school library App'
+  is_working = true
+  while is_working == true
+    menu
+    user_input = gets.chomp.to_i
+    is_working = false if user_input == 7
+    choose_options(user_input)
+  end
 end
 
 main

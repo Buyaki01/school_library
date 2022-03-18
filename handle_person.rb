@@ -4,6 +4,7 @@ require './teacher'
 
 class HandlePersons
   attr_accessor :persons
+
   def initialize
     @persons = []
   end
@@ -55,10 +56,10 @@ class HandlePersons
 
   def display_people
     @persons.each do |person|
-      puts "ID: #{person.id}" 
+      puts "ID: #{person.id}"
       puts "Name: #{person.name}"
       puts "Age: #{person.age}"
-      puts "#{person.class.name}"
+      puts person.class.name.to_s
     end
   end
 end
