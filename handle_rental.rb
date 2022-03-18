@@ -3,10 +3,19 @@ require './handle_book'
 require './handle_person'
 
 class HandleRentals
-  def initialize(params)
-    @rentals = params[:rentals]
-    @books = params[:books]
-    @persons = params[:persons]
+  attr_accessor :rentals, :array_of_books, :array_of_persons 
+  def initialize(books_instance, people)
+    @rentals = []
+    @array_of_books = books_instance
+    @array_of_persons = people
+  end
+
+  def access_books
+    @array_of_books.books
+  end
+
+  def access_persons
+    @array_of_persons.persons
   end
 
   def create_rental
@@ -14,12 +23,12 @@ class HandleRentals
     display_book_rental
     book_index_selected = gets.chomp.to_i
 
-    book = @books[book_index_selected]
+    book = access_books[book_index_selected]
 
     puts 'Select a person from the following list by number (not ID)'
     display_person_rental
     index_of_person = gets.chomp.to_i
-    person = @persons[index_of_person]
+    person = access_persons[index_of_person]
 
     print 'Date: '
     date = gets.chomp
@@ -41,13 +50,13 @@ class HandleRentals
   end
 
   def display_book_rental
-    @books.each_with_index do |book, index|
+    access_books.each_with_index do |book, index|
       puts "#{index}) Title: #{book.title}, Author: #{book.author}"
     end
   end
 
   def display_person_rental
-    @persons.each_with_index do |person, index|
+    access_persons.each_with_index do |person, index|
       puts "#{index}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}}"
     end
   end

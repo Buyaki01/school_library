@@ -3,6 +3,7 @@ require './student'
 require './teacher'
 
 class HandlePersons
+  attr_accessor :persons
   def initialize
     @persons = []
   end

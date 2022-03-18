@@ -1,12 +1,11 @@
 require './handle_person'
 require './handle_rental'
 require './handle_book'
+require 'pry'
 
 @handle_book = HandleBooks.new
 @handle_person = HandlePersons.new
-@rentals = []
-@rental = HandleRentals.new({ rentals: @rentals, persons: @persons, books: @books })
-
+@handle_rental = HandleRentals.new(@handle_book, @handle_person)
 
 def menu
   puts 'Please choose an option by entering a number: '
@@ -29,10 +28,11 @@ def choose_options(user_input)
     @handle_person.create_person
   when 4
     @handle_book.create_book
+    binding.pry
   when 5
-    @rental.create_rental
+    @handle_rental.create_rental
   when 6
-    @rental.display_rental
+    @handle_rental.display_rental
   end
 end
 
