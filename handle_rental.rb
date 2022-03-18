@@ -3,7 +3,8 @@ require './handle_book'
 require './handle_person'
 
 class HandleRentals
-  attr_accessor :rentals, :array_of_books, :array_of_persons 
+  attr_accessor :rentals, :array_of_books, :array_of_persons
+
   def initialize(books_instance, people)
     @rentals = []
     @array_of_books = books_instance
